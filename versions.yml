@@ -1,0 +1,53 @@
+---
+
+- version: 1.1
+  title: YAPET 1.1
+  dists:
+    - .tar.xz
+    - .tar.gz
+    - .tar.bz2
+- version: 1.0
+  title: YAPET 1.0
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.8pre2
+  title: YAPET 0.8 Preview 2
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.7
+  title: YAPET 0.7
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.6
+  title: YAPET 0.6
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.5
+  title: YAPET 0.5
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.4
+  title: YAPET 0.4
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.3a
+  title: YAPET 0.3a
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.2
+  title: YAPET 0.2
+  dists:
+    - .tar.gz
+    - .tar.bz2
+- version: 0.1
+  title: YAPET 0.1
+  dists:
+    - .tar.gz
+    - .tar.bz2

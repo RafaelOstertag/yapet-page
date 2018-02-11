@@ -1,2 +1,9 @@
 *~
 public_html/*.html
+work/
+yapet*.tar.xz
+scripts/bin/
+scripts/pkg/
+scripts/src/gopkg.in/
+untar-yapet
+work-dir
