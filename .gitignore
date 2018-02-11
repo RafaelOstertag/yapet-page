@@ -1,5 +1,6 @@
 *~
 public_html/*.html
+public_html/doc/
 work/
 yapet*.tar.xz
 scripts/bin/

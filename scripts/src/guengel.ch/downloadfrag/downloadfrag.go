@@ -9,17 +9,12 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"gopkg.in/yaml.v2"
-	"io/ioutil"
 	"log"
 	"text/template"
+	"guengel.ch/versions"
 )
 
-type version struct {
-	Version string `yaml:"version"`
-	Title string `yaml:"title"`
-	Dists []string `yaml:"dists"`
-}
+
 
 type fragment struct {
 	Title string `xml:"title"`
@@ -29,25 +24,9 @@ type fragment struct {
 	}
 }
 
-func unmarshalVersionsFromYAML(filename string) []version {
-	yamlFileContent, err := ioutil.ReadFile(filename)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	var versions []version
-
-	err = yaml.Unmarshal(yamlFileContent, &versions)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return versions
-}
-
-func processDownloadsTemplate(filename string, versions []version) string {
+func processDownloadsTemplate(filename string, vers []versions.Version) string {
 	type data struct {
-		Versions []version
+		Versions []versions.Version
 	}
 	
 	tmpl, err := template.ParseFiles(filename)
@@ -58,7 +37,7 @@ func processDownloadsTemplate(filename string, versions []version) string {
 	buffer := new(bytes.Buffer)
 
 	var d data
-	d.Versions = versions
+	d.Versions = vers
 	if err = tmpl.Execute(buffer, d); err != nil {
 		log.Fatal(err)
 	}
@@ -76,8 +55,8 @@ func outputXMLFragment(frag fragment) {
 }
 
 func main() {
-	versions := unmarshalVersionsFromYAML("versions.yml")
-	content := processDownloadsTemplate("templates/downloads.tmpl", versions)
+	vers := versions.UnmarshalVersionsFromYAML("versions.yml")
+	content := processDownloadsTemplate("templates/downloads.tmpl", vers)
 	var frag fragment
 	frag.Title = "YAPET - Downloads"
 	frag.Content.Cdata = content
