@@ -49,6 +49,6 @@ cleansubdirs:
 	currdir=`pwd` ; for d in $(SUBDIRS) ; do cd "$$d" && $(MAKE) clean && cd "$$currdir" ; done
 
 cleanhtml:
-	rm -f public_html/index.html
+	rm -f public_html/*.html
 
 .PHONY: buildsubdirs
