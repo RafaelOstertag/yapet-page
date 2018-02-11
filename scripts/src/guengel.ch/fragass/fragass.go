@@ -37,7 +37,7 @@ type fragment struct {
 
 
 func parseFlags() arguments {
-	args := arguments{}
+	var args arguments
 	
 	flag.StringVar(&args.template, "template", "", "template file")
 	flag.StringVar(&args.fragment, "fragment", "", "fragment file")
@@ -52,7 +52,7 @@ func parseFragment(filename string) fragment {
 		log.Fatal(err)
 	}
 
-	frag := fragment{}
+	var frag fragment
 
 	err = xml.Unmarshal(content, &frag)
 	if err != nil {
