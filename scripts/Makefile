@@ -13,3 +13,4 @@ bin/downloadfrag: src/guengel.ch/downloadfrag/downloadfrag.go
 clean:
 	rm -rf bin
 	rm -rf pkg
+	rm -rf src/gopkg.in
