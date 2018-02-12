@@ -4,10 +4,10 @@ node("master") {
     }
 
     stage("clean") {
-	sh "make clean"
+	sh "gmake clean"
     }
 
     stage("build") {
-	sh "make all"
+	sh "gmake all"
     }
 }
