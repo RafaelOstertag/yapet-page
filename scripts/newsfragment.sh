@@ -7,7 +7,7 @@
 
 if [ $# -ne 2 ]
 then
-    echo "`basename $0 \<NEWSFILE\> \<OUTPUTDIRECTORY\>`" >&2
+    echo "`basename $0 <NEWSFILE> <OUTPUTDIRECTORY>`" >&2
     exit 1
 fi
 
