@@ -28,7 +28,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            
+
             <img class="d-block w-100 rounded" src="images/mainscreen_w_entries.png"
                  alt="Main screen with entries">
             <div class="carousel-caption d-none d-md-block">
@@ -72,13 +72,34 @@
     </div>
     <div class="col-md-4">
       <div class="card">
-	<div class="card-body">
-	  <div class="card-title">
-	    <h2>Latest Release</h2>
-	  </div>
-	  <p class="card-text">The latest source code release is <a href="downloads/{{.Tarball}}">{{.Title}}</a></p>
-	</div>
+        <div class="card-body">
+	         <div class="card-title">
+	            <h2>Latest Release</h2>
+           </div>
+            <p class="card-text">The latest source code release is <a href="downloads/{{.Tarball}}">{{.Title}}</a></p>
+       </div>
       </div>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>GitHub</h2>
+          </div>
+          <p class="card-text">
+            Source code is on <a href="https://github.com/RafaelOstertag/yapet">GitHub</a>.
+          </p>
+        </div>
     </div>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Found a Bug?</h2>
+        </div>
+        <p class="card-text">
+          Report it in <a href="https://bugs.guengel.ch/enter_bug.cgi?product=YAPET">Bugzilla</a>.
+        </p>
+      </div>
   </div>
+  </div>
+</div>
 </section>
