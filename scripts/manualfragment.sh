@@ -1,33 +1,32 @@
 #!/bin/sh
 #
-# Create a fragment from the YAPET yapet.html file using xsltproc.
+# Create fragments from YAPET htmlized man pages using xsltproc.
 #
 # The script assumes its current working directory is the repository
-# root, and `work/tmp` already exists
+# root.
+#
+# The output goes to stdout.
 
 if [ $# -ne 2 ]
 then
-    echo "`basename $0 <YAPET> <OUTPUTDIRECTORY>`" >&2
+    echo "`basename $0 <MANPAGE> <PAGETITLE>`" >&2
     exit 1
 fi
 
-yapet_file=$1
-output_dir=$2
-content=`xsltproc xslt/manpage.xslt "${yapet_file}"`
+htmlmanpage_file=$1
+pagetitle=$2
+content=`xsltproc xslt/manpage.xslt "${htmlmanpage_file}"`
 
-cat > "${output_dir}/manual.xml" <<EOF
+cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 <fragment>
   <title>
-    YAPET - Manual
+    ${pagetitle}
   </title>
   <content>
     <![CDATA[
     <main class="container">
       <section>
-        <header>
-          <h1 class="mt-4">Manual</h1>
-        </header>
 	${content}
       </section>
     </main>
