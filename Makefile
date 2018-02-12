@@ -9,9 +9,9 @@ YAPET_SRC_DIR = work/yapet
 
 HTML_TEMPLATE = templates/html_template.html
 
-all: buildsubdirs buildhtml
+all: buildsubdirs buildhtml buildsitemap
 
-clean: cleansubdirs cleanhtml
+clean: cleansubdirs cleanhtml cleansitemap
 	rm -rf work
 	rm -f untar-yapet work-dir
 
@@ -19,6 +19,11 @@ buildsubdirs:
 	for d in $(SUBDIRS) ; do $(MAKE) -C $$d all ; done
 
 buildhtml: public_html/index.html public_html/news.html public_html/downloads.html public_html/yapet.html public_html/yapet_colors.html public_html/yapet_config.html public_html/csv2yapet.html public_html/yapet2csv.html public_html/readme.html public_html/design.html
+
+buildsitemap: public_html/Sitemap.xml
+
+public_html/Sitemap.xml:
+	scripts/sitemap.sh > $@
 
 public_html/index.html: $(GENERATED_FRAGMENTS_DIR)/index.xml $(HTML_TEMPLATE)
 	$(FRAGASS) $(FRAGASS_TEMPLATE) -fragment $< > $@
@@ -101,5 +106,8 @@ cleansubdirs:
 
 cleanhtml:
 	rm -f public_html/*.html
+
+cleansitemap:
+	rm -f public_html/Sitemap.xml
 
 .PHONY: buildsubdirs

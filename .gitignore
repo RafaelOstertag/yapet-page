@@ -1,6 +1,6 @@
 *~
 public_html/*.html
-public_html/doc/
+public_html/Sitemap.xml
 work/
 yapet*.tar.xz
 scripts/bin/
