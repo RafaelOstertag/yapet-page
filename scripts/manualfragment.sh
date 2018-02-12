@@ -18,7 +18,7 @@ fi
 
 htmlmanpage_file=$1
 pagetitle=$2
-content=`xsltproc -nonet xslt/manpage.xslt "${htmlmanpage_file}" | sed -e s/type="disc"//g`
+content=`xsltproc -nonet xslt/manpage.xslt "${htmlmanpage_file}" | sed -e s/type=\"disc\"//g`
 
 cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
