@@ -9,7 +9,7 @@
 
 if [ $# -ne 3 ]
 then
-    echo "`basename $0 <ARTICLE> <PAGETITLE> <SECTIONHEADER>`" >&2
+    echo "`basename $0` <ARTICLE> <PAGETITLE> <SECTIONHEADER>" >&2
     exit 1
 fi
 
