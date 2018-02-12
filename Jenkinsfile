@@ -1,3 +1,5 @@
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([githubPush(), pollSCM('')])])
+
 node("master") {
     stage("checkout") {
 	checkout scm
