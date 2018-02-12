@@ -58,7 +58,7 @@ func main() {
 	vers := versions.UnmarshalVersionsFromYAML("versions.yml")
 	content := processDownloadsTemplate("templates/downloads.tmpl", vers)
 	var frag fragment
-	frag.Title = "YAPET - Downloads"
+	frag.Title = "YAPET Downloads"
 	frag.Content.Cdata = content
 	outputXMLFragment(frag)
 }

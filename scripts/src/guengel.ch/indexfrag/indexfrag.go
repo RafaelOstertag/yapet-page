@@ -42,7 +42,7 @@ func main() {
 	content := processIndexTemplate("templates/index.tmpl", latestRel)
 	
 	var frag fragment.Fragment
-	frag.Title = "YAPET- Yet Another Password Encryption Tool"
+	frag.Title = "YAPET - Yet Another Password Encryption Tool"
 	frag.Content.Cdata = content
 	fragment.OutputXMLFragment(frag)
 }

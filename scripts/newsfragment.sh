@@ -22,7 +22,7 @@ cat > "${output_dir}/news.xml" <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 <fragment>
   <title>
-    YAPET - News
+    YAPET News
   </title>
   <content>
     <![CDATA[
