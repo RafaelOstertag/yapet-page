@@ -8,7 +8,7 @@
 # The output goes to stdout
 
 set -e
-set -n
+set -u
 
 if [ $# -ne 3 ]
 then

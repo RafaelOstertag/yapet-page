@@ -3,7 +3,7 @@
 # Deploy built page to eventhorizon.dmz.kruemel using sftp.
 
 set -e
-set -n
+set -u
 
 REMOTE_USER=yapet-deploy
 REMOTE_HOST=eventhorizon.dmz.kruemel.home

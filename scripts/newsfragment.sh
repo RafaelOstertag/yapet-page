@@ -6,7 +6,7 @@
 # root, and `work/tmp` already exists
 
 set -e
-set -n
+set -u
 
 if [ $# -ne 2 ]
 then
