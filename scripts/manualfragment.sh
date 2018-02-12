@@ -29,7 +29,7 @@ cat <<EOF
   <content>
     <![CDATA[
     <main class="container">
-      <section>
+      <section class="mt-4">
 	${content}
       </section>
     </main>
