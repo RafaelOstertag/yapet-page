@@ -7,6 +7,9 @@
 #
 # The output goes to stdout
 
+set -e
+set -n
+
 if [ $# -ne 3 ]
 then
     echo "`basename $0` <ARTICLE> <PAGETITLE> <SECTIONHEADER>" >&2

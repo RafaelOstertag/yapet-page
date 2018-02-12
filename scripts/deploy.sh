@@ -2,6 +2,9 @@
 #
 # Deploy built page to eventhorizon.dmz.kruemel using sftp.
 
+set -e
+set -n
+
 REMOTE_USER=yapet-deploy
 REMOTE_HOST=eventhorizon.dmz.kruemel.home
 REMOTE_BASE=/var/www/jails/yapet/usr/local/www/apache24/data

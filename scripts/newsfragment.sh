@@ -5,6 +5,9 @@
 # The script assumes its current working directory is the repository
 # root, and `work/tmp` already exists
 
+set -e
+set -n
+
 if [ $# -ne 2 ]
 then
     echo "`basename $0` <NEWSFILE> <OUTPUTDIRECTORY>" >&2
