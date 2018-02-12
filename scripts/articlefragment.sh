@@ -19,7 +19,7 @@ fi
 article_file=$1
 pagetitle=$2
 sectionheader=$3
-content=`xsltproc xslt/article.xslt "${article_file}"`
+content=`xsltproc -nonet xslt/article.xslt "${article_file}"`
 
 cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
