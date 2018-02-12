@@ -19,7 +19,7 @@ fi
 article_file=$1
 pagetitle=$2
 sectionheader=$3
-content=`xsltproc -nonet xslt/article.xslt "${article_file}" | sed -e s/type=\"disc\"//g`
+content=`xsltproc -nonet xslt/article.xslt "${article_file}" | sed -e s/type=\"disc\"//g -e s/class=\"[a-z0-9\.\-]*\"//g`
 
 cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
