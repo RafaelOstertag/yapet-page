@@ -56,7 +56,7 @@ public_html/design.html: $(GENERATED_FRAGMENTS_DIR)/design.xml $(HTML_TEMPLATE)
 	$(FRAGASS) $(FRAGASS_TEMPLATE) -fragment $< > $@
 
 yapet.tar.xz:
-	latest_release=`scripts/bin/latestversion` && curl -o yapet.tar.xz $(YAPET_DOWNLOAD_URL)/$$latest_release
+	latest_release=`scripts/bin/latestversion -package-name yapet` && curl -o yapet.tar.xz $(YAPET_DOWNLOAD_URL)/$$latest_release
 
 untar-yapet: yapet.tar.xz work-dir
 	gtar -C $(YAPET_SRC_DIR) --strip-components 1 -xf yapet.tar.xz
@@ -90,10 +90,10 @@ $(GENERATED_FRAGMENTS_DIR)/design.xml: $(YAPET_SRC_DIR)/doc/DESIGN.html work-dir
 	scripts/articlefragment.sh $< "YAPET Design" "Design" > $@
 
 $(GENERATED_FRAGMENTS_DIR)/index.xml: templates/index.tmpl work-dir
-	scripts/bin/indexfrag > $@
+	scripts/bin/indexfrag -package-name "yapet" -page-title "YAPET - Yet Another Password Encryption Tool" > $@
 
 $(GENERATED_FRAGMENTS_DIR)/downloads.xml: templates/downloads.tmpl work-dir
-	scripts/bin/downloadfrag > $@
+	scripts/bin/downloadfrag -page-title "YAPET Downloads" > $@
 
 work-dir:
 	mkdir -p $(YAPET_SRC_DIR)
