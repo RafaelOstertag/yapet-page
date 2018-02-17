@@ -16,7 +16,7 @@ node("master") {
 
 	stage("deploy") {
 	    sshagent(['0b266ecf-fa80-4fe8-bce8-4c723f5ba47a']) {
-		sh "scripts/deploy.sh"
+		sh "env REMOTE_USER=yapet-deploy REMOTE_HOST=eventhorizon.dmz.kruemel.home REMOTE_BASE=/var/www/jails/yapet/usr/local/www/apache24/data scripts/deploy.sh"
 	    }
 	}
 	currentBuild.result = 'SUCCESS'
