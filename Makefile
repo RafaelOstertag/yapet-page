@@ -23,7 +23,7 @@ buildhtml: public_html/index.html public_html/news.html public_html/downloads.ht
 buildsitemap: public_html/Sitemap.xml
 
 public_html/Sitemap.xml:
-	scripts/sitemap.sh > $@
+	env BASE_URL=https://yapet.guengel.ch/ scripts/sitemap.sh > $@
 
 public_html/index.html: $(GENERATED_FRAGMENTS_DIR)/index.xml $(HTML_TEMPLATE)
 	$(FRAGASS) $(FRAGASS_TEMPLATE) -fragment $< > $@
@@ -66,7 +66,7 @@ $(YAPET_SRC_DIR)/NEWS: untar-yapet
 $(YAPET_SRC_DIR)/doc/%.html: untar-yapet
 
 $(GENERATED_FRAGMENTS_DIR)/news.xml: $(YAPET_SRC_DIR)/NEWS work-dir 
-	scripts/newsfragment.sh $< $(GENERATED_FRAGMENTS_DIR)
+	scripts/newsfragment.sh "YAPET News" $< $(GENERATED_FRAGMENTS_DIR)
 
 $(GENERATED_FRAGMENTS_DIR)/yapet.xml: $(YAPET_SRC_DIR)/doc/yapet.html work-dir
 	scripts/manualfragment.sh $< "YAPET Manual Page" > $@
