@@ -9,11 +9,15 @@ YAPET_SRC_DIR = work/yapet
 
 HTML_TEMPLATE = templates/html_template.html
 
-all: buildsubdirs buildhtml buildsitemap
+all: setup buildsubdirs buildhtml buildsitemap
 
 clean: cleansubdirs cleanhtml cleansitemap
 	rm -rf work
+	rm -f xslt
 	rm -f untar-yapet work-dir
+
+setup:
+	ln -s scripts/xslt xslt
 
 buildsubdirs:
 	for d in $(SUBDIRS) ; do $(MAKE) -C $$d all ; done
