@@ -2,6 +2,7 @@
 public_html/*.html
 public_html/Sitemap.xml
 work/
+setup
 yapet*.tar.xz
 scripts/bin/
 scripts/pkg/
