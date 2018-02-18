@@ -13,11 +13,12 @@ all: setup buildsubdirs buildhtml buildsitemap
 
 clean: cleansubdirs cleanhtml cleansitemap
 	rm -rf work
-	rm -f xslt
+	rm -f xslt setup
 	rm -f untar-yapet work-dir
 
 setup:
 	ln -s scripts/xslt xslt
+	touch $@
 
 buildsubdirs:
 	for d in $(SUBDIRS) ; do $(MAKE) -C $$d all ; done
