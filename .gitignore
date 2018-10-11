@@ -1,6 +1,7 @@
 *~
 public_html/*.html
 public_html/Sitemap.xml
+public_html/includes/*
 work/
 setup
 yapet*.tar.xz

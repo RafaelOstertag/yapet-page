@@ -3,7 +3,7 @@ YAPET Web Page.
 Requirements
 ---
 
-Building the Web Page requires Go, xsltproc and Pandoc installed.
+Building the Web Page requires Go.
 
 
 Building Page

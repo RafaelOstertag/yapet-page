@@ -4,18 +4,30 @@
       <h1 class="mt-4">Downloads</h1>
     </header>
 
-    <h2>Sources</h2>
     {{range .Versions}}
     {{/* capture the version, it is used later on in the inner range */}}
     {{ $version := .Version }}
     <div class="row">
-      <div class="col-sm-8">
-	{{.Title}}
-      </div>
       <div class="col-sm-4">
-	{{range .Dists}}
-	<a href="downloads/yapet-{{ $version }}{{.}}">{{.}}</a>
-	{{end}}
+	    {{.Title}}
+      </div>
+      <div class="col-sm-4 pb-2">
+        <div class="btn-group">
+          {{ $first := true }}
+          {{range .Dists}}
+            {{ if $first }}
+              <a class="btn btn-primary" href="downloads/yapet-{{ $version }}{{.}}">{{.}}</a>
+              <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+              {{ $first = false }}
+            {{ else }}
+                <a class="dropdown-item" href="downloads/yapet-{{ $version }}{{.}}">{{.}}</a>
+            {{ end }}
+          {{end}}
+              </div>
+        </div>
       </div>
     </div>
     {{end}}
