@@ -59,9 +59,14 @@
 
   <script>
     $(function() {
-      $('#iframe-container') && $('#iframe-container').css({
-        height: $('#include-iframe').contents().height()
-      })
+      function adjustHeight() {
+        $('#iframe-container').css({
+         height: $('#include-iframe').contents().height()
+        });
+      }
+      if ($('#iframe-container')) {
+        $('#include-iframe').ready(adjustHeight);
+      }
     });
   </script>
 </html>
