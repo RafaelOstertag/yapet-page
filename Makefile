@@ -11,7 +11,7 @@ HTML_TEMPLATE = templates/html_template.html
 
 PUBLIC_HTML_DIR = public_html
 
-all: setup buildsubdirs buildhtml buildsitemap
+all: buildsubdirs buildhtml buildsitemap
 
 clean: cleansubdirs cleanhtml cleansitemap
 	rm -rf work
