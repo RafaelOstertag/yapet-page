@@ -65,7 +65,8 @@
         });
       }
       if ($('#iframe-container')) {
-        $('#include-iframe').ready(adjustHeight);
+        $('#include-iframe').on('load',adjustHeight);
+        adjustHeight();
       }
     });
   </script>
