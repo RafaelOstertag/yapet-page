@@ -1,4 +1,10 @@
 ---
+- version: 2.3
+  title: YAPET 2.3
+  dists:
+  - .tar.xz
+  - .tar.gz
+  - .tar.bz2
 - version: 2.2
   title: YAPET 2.2
   dists:
