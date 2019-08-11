@@ -33,8 +33,8 @@ pipeline {
 			}
 			
 			steps {
-				sshagent(['0b266ecf-fa80-4fe8-bce8-4c723f5ba47a']) {
-					sh "env REMOTE_USER=yapet-deploy REMOTE_HOST=eventhorizon.dmz.kruemel.home REMOTE_BASE=/var/www/jails/yapet/usr/local/www/apache24/data scripts/deploy.sh"
+				sshagent(['897482ed-9233-4d56-88c3-254b909b6316']) {
+					sh "env REMOTE_USER=ec2-deploy REMOTE_HOST=ec2-52-29-59-221.eu-central-1.compute.amazonaws.com REMOTE_BASE=/data/www/yapet.guengel.ch scripts/deploy.sh"
 				}
 			}
 		}
