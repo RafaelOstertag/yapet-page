@@ -17,6 +17,6 @@ bin/latestversion: src/guengel.ch/latestversion/latestversion.go src/guengel.ch/
 
 clean:
 	rm -rf bin
-	chmod u+w -R pkg || true
+	chmod -R u+w pkg || true
 	rm -rf pkg
 	rm -rf src/gopkg.in
