@@ -10,10 +10,6 @@ pipeline {
         timestamps()
     }
 
-	triggers {
-        pollSCM '@hourly'
-    }
-
     stages {
 		stage("clean") {
 			steps {
