@@ -4,21 +4,19 @@ GOPATH = $(abspath .)
 all: bin/fragass bin/downloadfrag bin/indexfrag bin/latestversion
 
 bin/fragass: src/guengel.ch/fragass/fragass.go
-	env GOPATH=$(GOPATH) go install guengel.ch/fragass
+	cd src/guengel.ch/fragass && env GOPATH=$(GOPATH) go install guengel.ch/fragass
 
 bin/downloadfrag: src/guengel.ch/downloadfrag/downloadfrag.go src/guengel.ch/versions/versions.go src/guengel.ch/fragment/fragment.go
-	env GOPATH=$(GOPATH) go get gopkg.in/yaml.v2
-	env GOPATH=$(GOPATH) go install guengel.ch/downloadfrag
+	cd src/guengel.ch/downloadfrag && env GOPATH=$(GOPATH) go install guengel.ch/downloadfrag
 
 bin/indexfrag: src/guengel.ch/indexfrag/indexfrag.go src/guengel.ch/versions/versions.go src/guengel.ch/fragment/fragment.go
-	env GOPATH=$(GOPATH) go get gopkg.in/yaml.v2
-	env GOPATH=$(GOPATH) go install guengel.ch/indexfrag
+	cd src/guengel.ch/indexfrag && env GOPATH=$(GOPATH) go install guengel.ch/indexfrag
 
 bin/latestversion: src/guengel.ch/latestversion/latestversion.go src/guengel.ch/versions/versions.go
-	env GOPATH=$(GOPATH) go get gopkg.in/yaml.v2
-	env GOPATH=$(GOPATH) go install guengel.ch/latestversion
+	cd src/guengel.ch/latestversion && env GOPATH=$(GOPATH) go install guengel.ch/latestversion
 
 clean:
 	rm -rf bin
+	chmod u+w -R pkg
 	rm -rf pkg
 	rm -rf src/gopkg.in
