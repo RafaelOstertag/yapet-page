@@ -21,6 +21,13 @@ pipeline {
 			steps {
 				sh "gmake all"
 			}
+
+            post {
+                always {
+                    // Some files are created without write access
+                    sh "chmod -R u+w *"
+                }
+            }
 		}
 
 		stage("deploy") {
