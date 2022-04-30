@@ -1,0 +1,61 @@
+version: 2.1
+
+orbs:
+  c: rafaelostertag/common-orb@1.19.0
+
+executors:
+  go-builder:
+    docker:
+      - image: cimg/go:1.16
+    resource_class: medium     
+  simple:
+    docker:
+      - image: cimg/base:stable
+    resource_class: small
+
+jobs:
+  build-page:
+    executor: go-builder
+    steps:
+      - checkout
+      - run:
+          name: Build page
+          command: make all
+      - persist_to_workspace:
+          root: .
+          paths:
+            - "public_html"
+  deploy-artifact:
+    executor: simple
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Create tar
+          command: cd public_html ; tar -cvzf ../yapet-page.tar.gz .
+      - run:
+          name: Push to artifactory
+          command: curl -f -u "${REPO_USERNAME}:${REPO_PASSWORD}" --upload-file "yapet-page.tar.gz" "https://rafaelostertag.jfrog.io/artifactory/local-generic/yapet-page/yapet-page.tar.gz"
+  trigger-rundeck:
+    executor: c/internal-infra
+    steps:
+      - run:
+          name: Trigger rundeck
+          command: |
+            curl -f -H "X-Rundeck-Auth-Token: ${RUNDECK_API_TOKEN}" \
+              -X POST https://colossus.kruemel.home/rundeck/api/18/job/d20a315b-f58f-490a-ac3b-81aac1bcfd9e/executions
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build-page
+      - deploy-artifact:
+          context:
+            - generic-repository-write
+          requires:
+            - build-page
+      - trigger-rundeck:
+          context:
+            - rundeck
+          requires:
+            - deploy-artifact

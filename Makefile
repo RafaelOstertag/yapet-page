@@ -70,7 +70,7 @@ yapet.tar.xz:
 	latest_release=`scripts/bin/latestversion -package-name yapet` && curl -o yapet.tar.xz $(YAPET_DOWNLOAD_URL)/$$latest_release
 
 untar-yapet: yapet.tar.xz work-dir
-	gtar -C $(YAPET_SRC_DIR) --strip-components 1 -xf yapet.tar.xz
+	tar -C $(YAPET_SRC_DIR) --strip-components 1 -xf yapet.tar.xz
 	@touch $@
 
 $(YAPET_SRC_DIR)/NEWS: untar-yapet
